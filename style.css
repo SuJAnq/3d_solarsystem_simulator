@@ -1,0 +1,43 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    overflow: hidden;
+    color: white;
+    font-family: Arial, sans-serif;
+  }
+  
+  #playButton {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #000000; /* fully black */
+    color: white;
+    border: none;
+    border-radius: 0; /* no rounding */
+    cursor: pointer;
+    z-index: 10;
+    user-select: none;
+    outline: none;
+    box-shadow: none;
+    margin: 0;
+  }
+  
+  #playButton:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+  }
