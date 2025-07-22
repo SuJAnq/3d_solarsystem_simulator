@@ -117,16 +117,16 @@ function init() {
 
   const loader = new THREE.CubeTextureLoader();
   scene.background = loader.load([
-    "../assets/skybox/space_rt.png",
-    "../assets/skybox/space_lf.png",
-    "../assets/skybox/space_up.png",
-    "../assets/skybox/space_dn.png",
-    "../assets/skybox/space_ft.png",
-    "../assets/skybox/space_bk.png",
+    "/assets/skybox/space_rt.png",
+    "/assets/skybox/space_lf.png",
+    "/assets/skybox/space_up.png",
+    "/assets/skybox/space_dn.png",
+    "/assets/skybox/space_ft.png",
+    "/assets/skybox/space_bk.png",
   ]);
 
   // Sun
-  const sunTex = new THREE.TextureLoader().load("../assets/planets/sun.jpg");
+  const sunTex = new THREE.TextureLoader().load("/assets/planets/sun.jpg");
   const sunGeo = new THREE.SphereGeometry(20, 64, 64);
   const sunMat = new THREE.MeshBasicMaterial({ map: sunTex });
   planet_sun = new THREE.Mesh(sunGeo, sunMat);
@@ -136,10 +136,10 @@ function init() {
 
   // Earth with shader
   const dayTexture = new THREE.TextureLoader().load(
-    "../assets/planets/earth_daymap.jpg"
+    "/assets/planets/earth_daymap.jpg"
   );
   const nightTexture = new THREE.TextureLoader().load(
-    "../assets/planets/earth_nightmap.jpg"
+    "/assets/planets/earth_nightmap.jpg"
   );
   earthMaterial = createEarthMaterial(
     dayTexture,
@@ -152,31 +152,31 @@ function init() {
   planets.push(planet_earth);
 
   // Other planets
-  planet_mercury = loadPlanet("../assets/planets/mercury.jpg", 2);
+  planet_mercury = loadPlanet("/assets/planets/mercury.jpg", 2);
   planet_mercury.name = "mercury";
   planets.push(planet_mercury);
 
-  planet_venus = loadPlanet("../assets/planets/venus_surface.jpg", 3);
+  planet_venus = loadPlanet("/assets/planets/venus_surface.jpg", 3);
   planet_venus.name = "venus";
   planets.push(planet_venus);
 
-  planet_mars = loadPlanet("../assets/planets/mars.jpg", 3.5);
+  planet_mars = loadPlanet("/assets/planets/mars.jpg", 3.5);
   planet_mars.name = "mars";
   planets.push(planet_mars);
 
-  planet_jupiter = loadPlanet("../assets/planets/jupiter.jpg", 10);
+  planet_jupiter = loadPlanet("/assets/planets/jupiter.jpg", 10);
   planet_jupiter.name = "jupiter";
   planets.push(planet_jupiter);
 
-  planet_saturn = loadPlanet("../assets/planets/saturn.jpg", 8);
+  planet_saturn = loadPlanet("/assets/planets/saturn.jpg", 8);
   planet_saturn.name = "saturn";
   planets.push(planet_saturn);
 
-  planet_uranus = loadPlanet("../assets/planets/uranus.jpg", 6);
+  planet_uranus = loadPlanet("/assets/planets/uranus.jpg", 6);
   planet_uranus.name = "uranus";
   planets.push(planet_uranus);
 
-  planet_neptune = loadPlanet("../assets/planets/neptune.jpg", 5);
+  planet_neptune = loadPlanet("/assets/planets/neptune.jpg", 5);
   planet_neptune.name = "neptune";
   planets.push(planet_neptune);
 
@@ -204,7 +204,7 @@ function init() {
 
   // Moons
   function addMoon(parent, radius, distance, inclinationDeg) {
-    const moon = loadPlanet("../assets/planets/moon.jpg", radius);
+    const moon = loadPlanet("/assets/planets/moon.jpg", radius);
     const pivot = new THREE.Object3D();
     parent.add(pivot);
     pivot.rotation.z = THREE.MathUtils.degToRad(inclinationDeg);
@@ -223,7 +223,7 @@ function init() {
   // Saturn rings
   const ringGeo = new THREE.RingGeometry(9, 16, 64);
   const ringTex = new THREE.TextureLoader().load(
-    "../assets/planets/saturn_ring_alpha.png"
+    "/assets/planets/saturn_ring_alpha.png"
   );
   const ringMat = new THREE.MeshBasicMaterial({
     map: ringTex,
@@ -276,7 +276,7 @@ function init() {
   camera.add(listener);
   sound = new THREE.Audio(listener);
   const audioLoader = new THREE.AudioLoader();
-  audioLoader.load("../assets/sounds/space_ambient.mp3", function (buffer) {
+  audioLoader.load("/assets/sounds/space_ambient.mp3", function (buffer) {
     sound.setBuffer(buffer);
     sound.setLoop(true);
     sound.setVolume(0.4);
